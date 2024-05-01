@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="container">
+    <h1>Instructions</h1>
+
+    <section class="row">
+      {% if too_many_hair_samples_view %}
+        <p>
+          This page shows any instructions which have too many hair
+          samples, so that the lab to prepare for them.
+        </p>
+      {% endif %}
+    </section>
+
+    <section class="row">
+      <ul>
+        {% for instruction in object_list %}
+          <li>
+            <a href="{{ instruction.get_absolute_url }}">
+              {{ instruction|title }}
+            </a>
+            with {{ instruction.hair_sample_count }} hair samples.
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </article>
+{% endblock %}

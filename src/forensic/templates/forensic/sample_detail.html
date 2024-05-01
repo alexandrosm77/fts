@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="container">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ object.collection.instruction.get_absolute_url }}">
+          Instruction
+        </a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="{{ object.collection.get_absolute_url }}">
+          Collection
+        </a>
+      </li>
+      <li class="breadcrumb-item active">Sample</li>
+    </ul>
+
+    <h1>{{ object|title }}</h1>
+  </article>
+{% endblock %}

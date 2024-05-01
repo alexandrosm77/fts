@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="container">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ object.instruction.get_absolute_url }}">
+          Instruction
+        </a>
+      </li>
+      <li class="breadcrumb-item active">Sample</li>
+    </ul>
+
+    <h1>{{ object|capfirst }}</h1>
+
+    <h2>Samples</h2>
+
+    <section class="row">
+      <ul>
+        {% for sample in object.sample_set.all %}
+          <li>
+            <a href="{% url 'forensic:sample_detail' sample.pk %}">
+              {{ sample }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </article>
+{% endblock %}
