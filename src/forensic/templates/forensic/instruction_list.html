@@ -21,6 +21,12 @@
               {{ instruction|title }}
             </a>
             with {{ instruction.hair_sample_count }} hair samples.
+            {% if instruction.instruction_group %}
+              Belongs in Instruction Group
+              <a href="{{ instruction.get_absolute_group_url }}">
+                {{ instruction.instruction_group.name }}
+              </a>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>

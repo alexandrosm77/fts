@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 
-from .models import Collection, Instruction, Sample
+from .models import Collection, Instruction, Sample, InstructionGroup
 
 
 class InstructionList(ListView):
@@ -10,6 +10,14 @@ class InstructionList(ListView):
 
 class InstructionDetail(DetailView):
     model = Instruction
+
+
+class InstructionGroupList(ListView):
+    model = InstructionGroup
+
+
+class InstructionGroupDetail(DetailView):
+    model = InstructionGroup
 
 
 class CollectionDetail(DetailView):

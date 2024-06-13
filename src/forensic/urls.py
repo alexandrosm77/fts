@@ -22,6 +22,16 @@ urlpatterns = [
             ),
         ])),
     ])),
+    path("instruction-groups/", include([
+        path("", views.InstructionGroupList.as_view(), name="instruction_group"),
+        path("<int:pk>/", include([
+            path(
+                "",
+                views.InstructionGroupDetail.as_view(),
+                name="instruction_group_detail",
+            ),
+        ])),
+    ])),
     path("collections/", include([
         path("", RedirectView.as_view(pattern_name="forensic:instructions")),
         path(
